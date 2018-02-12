@@ -15,7 +15,7 @@ unzip ngrok.zip -d $BUILD_DIR/bin > /dev/null 2>&1
 echo "done"
 
 echo -n "-----> Installing forge:... "
-curl --silent -o $BUILD_DIR/forge.jar "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.2.2615/forge-1.12.2-14.23.2.2615-universal.jar" | indent
+curl --silent -o $BUILD_DIR/forge.jar "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.2.2615/forge-1.12.2-14.23.2.2615-installer.jar" | indent
 echo "done"
 
 echo -n "-----> Installing minecraft server:... "
