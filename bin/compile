@@ -16,7 +16,7 @@ echo "done"
 
 MC_VERSION="${MC_VERSION:-1.12.2}"
 echo -n "-----> Installing server version:${MC_VERSION}... "
-curl --silent -o $BUILD_DIR/minecraft_server.1.12.2.jar.jar "https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar" | indent
+curl --silent -o $BUILD_DIR/minecraft_server.1.12.2.jar "https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar" | indent
 echo "done"
 
 echo -n "-----> Installing forge:... "
