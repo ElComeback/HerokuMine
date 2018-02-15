@@ -1,18 +1,18 @@
 # Heroku Minecraft Buildpack
 
-This is a [Heroku Buildpack](https://devcenter.heroku.com/articles/buildpacks)
-for running a Minecraft server in a [dyno](https://devcenter.heroku.com/articles/dynos).
+Este es un [Buildpack de Heroku](https://devcenter.heroku.com/articles/buildpacks)
+para correr un servidor de Minecraft en un [dyno](https://devcenter.heroku.com/articles/dynos).
 
-For an actual deployment example, please look into [my deployment repository](https://github.com/Chengsong/heroku-mc-deploy).
+Gracias al desarrollador Chengsong por la idea del Deploy a Dropbox [Perfil de Chengsong](https://github.com/Chengsong).
 
-## Env Variables
+## Variables ENV
 
 ### DropBox
 
-The Heroku filesystem is [ephemeral](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem),
-which means files written to the file system will be destroyed when the server is restarted.
+El sistema de Archivos de Heroku es [efimero](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem),
+lo cual significa que los archivos escritos en el sistema de archivos seran destruidos cuando el dyno se reinicie.
 
-You will have to set a DropBox auth token to synchronize your world information with:
+Debes definir tu Token de Autenticacion de Dropbox para sincronizar el Mundo de Minecraft a tu cuenta de Dropbox con:
 
 ```
 $ heroku config:set DROPBOX_API_TOKEN="MY_DROPBOX_TOKEN"
@@ -20,30 +20,20 @@ $ heroku config:set DROPBOX_API_TOKEN="MY_DROPBOX_TOKEN"
 
 ### ngrok
 
-You need to set a ngrok auth token to open secure tunnel to your minecrfat server:
+Debes definir tu Token de Autenticacion de Ngrok para abrir tu vpn a tu servidor de Minecraft:
 
 ```
 $ heroku config:set NGROK_API_TOKEN="MY_NGROK_TOKEN"
 ```
 
-You can customize ngrok by setting the `NGROK_OPTS` config variable. For example:
+Puedes personalizarlo con la variable de configuracion `NGROK_OPTS`. For example:
 
 ```
 $ heroku config:set NGROK_OPTS="-subdomain=my-subdomain"
 ```
 
-### Minecraft
+Puedes configurar el server de Minecraft creando un archivo de configuracion `server.properties`
+en tu proyecto y añadiendolo a Git. Puedes configurar cosas tales como el modo Creativo o Hardcore, la cantidad de usuarios que pueden ingresar, e incluso un Pack de Texturas. Las opciones varias estan descritas en la [Minecraft Wiki](http://minecraft.gamepedia.com/Server.properties).
 
-You can choose the Minecraft version by setting the MC_VERSION like so:
-
-```
-$ heroku config:set MC_VERSION="1.10.2"
-```
-
-You can also configure the server properties by creating a `server.properties`
-file in your project and adding it to Git. This is how you would set things like
-Creative mode and Hardcore difficulty. The various options available are
-described on the [Minecraft Wiki](http://minecraft.gamepedia.com/Server.properties).
-
-You can add files such as `banned-players.json`, `banned-ips.json`, `ops.json`,
-`whitelist.json` to your Git repository and the Minecraft server will pick them up.
+Puedes agregar archivos como `banned-players.json`, `banned-ips.json`, `ops.json`,
+`whitelist.json` a tu repositorio de Git y el servidor de Minecraft lo tomará.
