@@ -9,16 +9,16 @@ BP_DIR="$(cd "$(dirname "$0")" && pwd)"
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-echo -n "-----> Installing ngrok... "
+echo -n "-----> Instalando ngrok... "
 curl --silent -o ngrok.zip -L "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip" | indent
 unzip ngrok.zip -d $BUILD_DIR/bin > /dev/null 2>&1
 echo "done"
 
 MC_VERSION="${MC_VERSION:-1.12.2}"
-echo -n "-----> Installing server version:${MC_VERSION}... "
+echo -n "-----> Instalando Version del Servidor:${MC_VERSION}... "
 curl --silent -o $BUILD_DIR/minecraft_server.1.12.2.jar "https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar" | indent
 echo "done"
 
-echo -n "-----> Installing forge:... "
+echo -n "-----> Instalando Forge:... "
 curl --silent -o $BUILD_DIR/forge.jar "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.2.2611/forge-1.12.2-14.23.2.2611-universal.jar" | indent
 echo "done"
